@@ -38,7 +38,7 @@ BUILD
 -----
 
 To build from the source just do "make". Doing make will creates one executable
-file with the name rsync.
+file with the name snap_sync.
 
 USAGE
 -----
