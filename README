@@ -37,8 +37,8 @@ conditions.
 BUILD
 -----
 
-To build from the source just do "./configure" and "make". Doing make will creates one executable
-file with the name snap_sync.
+To build from the source just do "./configure" and "make". Doing make will 
+creates one executable file with the name snap_sync.
 
 USAGE
 -----
