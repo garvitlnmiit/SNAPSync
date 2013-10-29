@@ -9,7 +9,7 @@
 #include "main.h"
 #include "traverse_dir.h"
 
-#define vpath "/home/garvit/modified_rsync/rsync/"
+#define vpath "./"
 #define file_name_size 100
 #define total_files 100
 

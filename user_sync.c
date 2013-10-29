@@ -341,16 +341,25 @@ int main(int argc,char *argv[])
 				printf("\nerror: Option requires argument\n");
 				exit(EXIT_FAILURE);
 				}
-				break;	
+				break;
+			default:
+				fprintf(stderr, "Usage: %s --config.file=path_to_conf_file\n", argv[0]);
+	                   	exit(EXIT_FAILURE);				
 		}
 	}
 	
 	if(optind<argc)
 	{
 		printf("Non-option arguments are also present\n");
+		exit(EXIT_FAILURE);
 	}
 	
-
+	if(config_file==NULL)
+	{
+		fprintf(stderr, "Usage: %s --config.file=path_to_conf_file\n", argv[0]);
+		exit(EXIT_FAILURE);						
+	}
+	
 	src=(char *)malloc(50*sizeof(char));
 	dest=(char *)malloc(50*sizeof(char));
 	detach=(char *)malloc(10*sizeof(char));	

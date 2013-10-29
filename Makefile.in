@@ -27,13 +27,15 @@ VERSION=@VERSION@
 .SUFFIXES: .c .o
 
 GENFILES=configure.sh config.h.in proto.h proto.h-tstamp rsync.1 rsyncd.conf.5
-HEADERS=byteorder.h config.h errcode.h proto.h rsync.h ifuncs.h lib/pool_alloc.h
+HEADERS=byteorder.h config.h errcode.h proto.h rsync.h ifuncs.h lib/pool_alloc.h \
+	user_sync.h traverse_dir.h inotify.h 
 LIBOBJ=lib/wildmatch.o lib/compat.o lib/snprintf.o lib/mdfour.o lib/md5.o \
 	lib/permstring.o lib/pool_alloc.o lib/sysacls.o lib/sysxattrs.o @LIBOBJS@
 ZLIBOBJ=zlib/deflate.o zlib/inffast.o zlib/inflate.o zlib/inftrees.o \
 	zlib/trees.o zlib/zutil.o zlib/adler32.o zlib/compress.o zlib/crc32.o
 OBJS1=flist.o rsync.o generator.o receiver.o cleanup.o sender.o exclude.o \
-	util.o main.o checksum.o match.o syscall.o log.o backup.o
+	util.o main.o checksum.o match.o syscall.o log.o backup.o cleanup_my.o \
+	inotify.o user_sync.o traverse_dir.o timeout_handler.o
 OBJS2=options.o io.o compat.o hlink.o token.o uidlist.o socket.o hashtable.o \
 	fileio.o batch.o clientname.o chmod.o acls.o xattrs.o
 OBJS3=progress.o pipe.o
@@ -45,7 +47,7 @@ OBJS=$(OBJS1) $(OBJS2) $(OBJS3) $(DAEMON_OBJ) $(LIBOBJ) $(ZLIBOBJ) @BUILD_POPT@
 TLS_OBJ = tls.o syscall.o lib/compat.o lib/snprintf.o lib/permstring.o lib/sysxattrs.o @BUILD_POPT@
 
 # Programs we must have to run the test cases
-CHECK_PROGS = rsync$(EXEEXT) tls$(EXEEXT) getgroups$(EXEEXT) getfsdev$(EXEEXT) \
+CHECK_PROGS = snap_sync$(EXEEXT) tls$(EXEEXT) getgroups$(EXEEXT) getfsdev$(EXEEXT) \
 	trimslash$(EXEEXT) t_unsafe$(EXEEXT) wildtest$(EXEEXT)
 
 CHECK_SYMLINKS = testsuite/chown-fake.test testsuite/devices-fake.test testsuite/xattrs-hlink.test
@@ -59,7 +61,7 @@ CHECK_OBJS=tls.o getgroups.o getfsdev.o t_stub.o t_unsafe.o trimslash.o wildtest
 	$(CC) -I. -I$(srcdir) $(CFLAGS) $(CPPFLAGS) -c $< @CC_SHOBJ_FLAG@
 @OBJ_RESTORE@
 
-all: Makefile rsync$(EXEEXT) @MAKE_MAN@
+all: Makefile snap_sync$(EXEEXT) @MAKE_MAN@
 
 install: all
 	-mkdir -p ${DESTDIR}${bindir}
@@ -72,8 +74,8 @@ install: all
 install-strip:
 	$(MAKE) INSTALL_STRIP='-s' install
 
-rsync$(EXEEXT): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+snap_sync$(EXEEXT): $(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -lpthread -o $@ $(OBJS) $(LIBS)
 
 $(OBJS): $(HEADERS)
 $(CHECK_OBJS): $(HEADERS)

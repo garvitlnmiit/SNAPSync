@@ -7,9 +7,9 @@ exec_prefix=${prefix}
 bindir=${exec_prefix}/bin
 mandir=${datarootdir}/man
 
-LIBS=-lpthread
+LIBS=-lacl -lpopt 
 CC=gcc -std=gnu99
-CFLAGS=-g -O2 -DHAVE_CONFIG_H -Wall -W -I./popt
+CFLAGS=-g -O2 -DHAVE_CONFIG_H -Wall -W
 CPPFLAGS=
 EXEEXT=
 LDFLAGS=
@@ -27,23 +27,24 @@ VERSION=@VERSION@
 .SUFFIXES: .c .o
 
 GENFILES=configure.sh config.h.in proto.h proto.h-tstamp rsync.1 rsyncd.conf.5
-HEADERS=byteorder.h config.h errcode.h proto.h rsync.h ifuncs.h lib/pool_alloc.h
+HEADERS=byteorder.h config.h errcode.h proto.h rsync.h ifuncs.h lib/pool_alloc.h \
+	user_sync.h traverse_dir.h inotify.h 
 LIBOBJ=lib/wildmatch.o lib/compat.o lib/snprintf.o lib/mdfour.o lib/md5.o \
 	lib/permstring.o lib/pool_alloc.o lib/sysacls.o lib/sysxattrs.o 
 ZLIBOBJ=zlib/deflate.o zlib/inffast.o zlib/inflate.o zlib/inftrees.o \
 	zlib/trees.o zlib/zutil.o zlib/adler32.o zlib/compress.o zlib/crc32.o
 OBJS1=flist.o rsync.o generator.o receiver.o cleanup.o sender.o exclude.o \
-	util.o main.o checksum.o match.o syscall.o log.o backup.o user_sync.o \
-	inotify.o timeout_handler.o cleanup_my.o traverse_dir.o
+	util.o main.o checksum.o match.o syscall.o log.o backup.o cleanup_my.o \
+	inotify.o user_sync.o traverse_dir.o timeout_handler.o
 OBJS2=options.o io.o compat.o hlink.o token.o uidlist.o socket.o hashtable.o \
 	fileio.o batch.o clientname.o chmod.o acls.o xattrs.o
 OBJS3=progress.o pipe.o
 DAEMON_OBJ = params.o loadparm.o clientserver.o access.o connection.o authenticate.o
 popt_OBJS=popt/findme.o  popt/popt.o  popt/poptconfig.o \
 	popt/popthelp.o popt/poptparse.o
-OBJS=$(OBJS1) $(OBJS2) $(OBJS3) $(DAEMON_OBJ) $(LIBOBJ) $(ZLIBOBJ) $(popt_OBJS)
+OBJS=$(OBJS1) $(OBJS2) $(OBJS3) $(DAEMON_OBJ) $(LIBOBJ) $(ZLIBOBJ) 
 
-TLS_OBJ = tls.o syscall.o lib/compat.o lib/snprintf.o lib/permstring.o lib/sysxattrs.o $(popt_OBJS)
+TLS_OBJ = tls.o syscall.o lib/compat.o lib/snprintf.o lib/permstring.o lib/sysxattrs.o 
 
 # Programs we must have to run the test cases
 CHECK_PROGS = snap_sync$(EXEEXT) tls$(EXEEXT) getgroups$(EXEEXT) getfsdev$(EXEEXT) \
@@ -74,7 +75,7 @@ install-strip:
 	$(MAKE) INSTALL_STRIP='-s' install
 
 snap_sync$(EXEEXT): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -lpthread -o $@ $(OBJS) $(LIBS)
 
 $(OBJS): $(HEADERS)
 $(CHECK_OBJS): $(HEADERS)
@@ -241,8 +242,8 @@ check29: all $(CHECK_PROGS) $(CHECK_SYMLINKS)
 	rsync_bin=`pwd`/rsync$(EXEEXT) $(srcdir)/runtests.sh --protocol=29
 
 wildtest.o: wildtest.c lib/wildmatch.c rsync.h config.h
-wildtest$(EXEEXT): wildtest.o lib/compat.o lib/snprintf.o $(popt_OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ wildtest.o lib/compat.o lib/snprintf.o $(popt_OBJS) $(LIBS)
+wildtest$(EXEEXT): wildtest.o lib/compat.o lib/snprintf.o 
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ wildtest.o lib/compat.o lib/snprintf.o  $(LIBS)
 
 testsuite/chown-fake.test:
 	ln -s chown.test $(srcdir)/testsuite/chown-fake.test

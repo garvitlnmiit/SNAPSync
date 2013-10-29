@@ -41,7 +41,7 @@
 /* #undef HAVE_ACL_GET_PERM_NP */
 
 /* Define to 1 if you have the <acl/libacl.h> header file. */
-/* #undef HAVE_ACL_LIBACL_H */
+#define HAVE_ACL_LIBACL_H 1
 
 /* true if you have AIX ACLs */
 /* #undef HAVE_AIX_ACLS */
@@ -63,7 +63,7 @@
 #define HAVE_ASPRINTF 1
 
 /* Define to 1 if you have the <attr/xattr.h> header file. */
-/* #undef HAVE_ATTR_XATTR_H */
+#define HAVE_ATTR_XATTR_H 1
 
 /* Define to 1 if readdir() is broken */
 /* #undef HAVE_BROKEN_READDIR */
@@ -175,7 +175,7 @@
 #define HAVE_LCHOWN 1
 
 /* Define to 1 if you have the `acl' library (-lacl). */
-/* #undef HAVE_LIBACL */
+#define HAVE_LIBACL 1
 
 /* Define to 1 if you have the <libcharset.h> header file. */
 /* #undef HAVE_LIBCHARSET_H */
@@ -190,7 +190,7 @@
 /* #undef HAVE_LIBNSL_S */
 
 /* Define to 1 if you have the `popt' library (-lpopt). */
-/* #undef HAVE_LIBPOPT */
+#define HAVE_LIBPOPT 1
 
 /* Define to 1 if you have the `resolv' library (-lresolv). */
 /* #undef HAVE_LIBRESOLV */
@@ -291,13 +291,13 @@
 #define HAVE_PID_T 1
 
 /* Define to 1 if you have the <popt.h> header file. */
-/* #undef HAVE_POPT_H */
+#define HAVE_POPT_H 1
 
 /* Define to 1 if you have the <popt/popt.h> header file. */
 /* #undef HAVE_POPT_POPT_H */
 
 /* true if you have posix ACLs */
-/* #undef HAVE_POSIX_ACLS */
+#define HAVE_POSIX_ACLS 1
 
 /* Define to 1 if you have the `putenv' function. */
 #define HAVE_PUTENV 1
@@ -414,7 +414,7 @@
 #define HAVE_STRUCT_UTIMBUF 1
 
 /* Define to 1 if you have the <sys/acl.h> header file. */
-/* #undef HAVE_SYS_ACL_H */
+#define HAVE_SYS_ACL_H 1
 
 /* Define to 1 if you have the <sys/attr.h> header file. */
 /* #undef HAVE_SYS_ATTR_H */
@@ -557,7 +557,7 @@
 #define MKNOD_CREATES_SOCKETS 1
 
 /* unprivileged group for unprivileged user */
-#define NOBODY_GROUP "nogroup"
+#define NOBODY_GROUP "nobody"
 
 /* unprivileged user--e.g. nobody */
 #define NOBODY_USER "nobody"
@@ -623,7 +623,7 @@
 #define SIZEOF_INT64_T 8
 
 /* The size of `long', as computed by sizeof. */
-#define SIZEOF_LONG 4
+#define SIZEOF_LONG 8
 
 /* The size of `long long', as computed by sizeof. */
 #define SIZEOF_LONG_LONG 8
@@ -638,7 +638,7 @@
 #define SIZEOF_SHORT 2
 
 /* The size of `time_t', as computed by sizeof. */
-#define SIZEOF_TIME_T 4
+#define SIZEOF_TIME_T 8
 
 /* The size of `uint16_t', as computed by sizeof. */
 #define SIZEOF_UINT16_T 2
@@ -658,7 +658,7 @@
 #define STDC_HEADERS 1
 
 /* Define to 1 to add support for ACLs */
-/* #undef SUPPORT_ACLS */
+#define SUPPORT_ACLS 1
 
 /* Define to 1 to add support for extended attributes */
 #define SUPPORT_XATTRS 1
@@ -684,8 +684,13 @@
 # endif
 #endif
 
+/* Enable large inode numbers on Mac OS X 10.5.  */
+#ifndef _DARWIN_USE_64_BIT_INODE
+# define _DARWIN_USE_64_BIT_INODE 1
+#endif
+
 /* Number of bits in a file offset, on hosts where this is settable. */
-#define _FILE_OFFSET_BITS 64
+/* #undef _FILE_OFFSET_BITS */
 
 /* Define _GNU_SOURCE so that we get all necessary prototypes */
 #define _GNU_SOURCE 1
