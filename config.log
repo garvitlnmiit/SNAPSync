@@ -3034,7 +3034,7 @@ configure.sh:6598: $? = 0
 configure.sh:6615: result: none required
 configure.sh:6623: checking for library containing libiconv_open
 configure.sh:6654: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccsHDEN4.o: In function `main':
+/tmp/ccDwK6WW.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:99: undefined reference to `libiconv_open'
 collect2: error: ld returned 1 exit status
 configure.sh:6654: $? = 1
@@ -4013,7 +4013,7 @@ configure.sh:7083: $? = 0
 configure.sh:7083: result: yes
 configure.sh:7142: checking for aclsort
 configure.sh:7142: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccU9aC3c.o: In function `main':
+/tmp/ccYXsxmV.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:131: undefined reference to `aclsort'
 collect2: error: ld returned 1 exit status
 configure.sh:7142: $? = 1
@@ -4571,7 +4571,7 @@ configure.sh:7476: $? = 0
 configure.sh:7476: result: yes
 configure.sh:7476: checking for strlcat
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccDRYOgI.o: In function `main':
+/tmp/ccZbQaQy.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:161: undefined reference to `strlcat'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -4743,7 +4743,7 @@ configure.sh: failed program was:
 configure.sh:7476: result: no
 configure.sh:7476: checking for strlcpy
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccH02ZkK.o: In function `main':
+/tmp/ccrevzCC.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:161: undefined reference to `strlcpy'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -4943,7 +4943,7 @@ configure.sh:7476: $? = 0
 configure.sh:7476: result: yes
 configure.sh:7476: checking for setmode
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccWMBt1p.o: In function `main':
+/tmp/ccsbS1mh.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:168: undefined reference to `setmode'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -5138,7 +5138,7 @@ configure.sh:7476: $? = 0
 configure.sh:7476: result: yes
 configure.sh:7476: checking for va_copy
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccgTqb1I.o: In function `main':
+/tmp/ccLHdBlE.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:172: undefined reference to `va_copy'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -5321,7 +5321,7 @@ configure.sh: failed program was:
 configure.sh:7476: result: no
 configure.sh:7476: checking for __va_copy
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccCLMu3N.o: In function `main':
+/tmp/cckqBXfL.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:172: undefined reference to `__va_copy'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -5520,7 +5520,7 @@ configure.sh:7476: $? = 0
 configure.sh:7476: result: yes
 configure.sh:7476: checking for locale_charset
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccrPFqhh.o: In function `main':
+/tmp/ccQLwNoc.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:176: undefined reference to `locale_charset'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -5715,7 +5715,7 @@ configure.sh:7476: $? = 0
 configure.sh:7476: result: yes
 configure.sh:7476: checking for extattr_get_link
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/ccWZ7xCA.o: In function `main':
+/tmp/cc7oHIUx.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:178: undefined reference to `extattr_get_link'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -5912,7 +5912,7 @@ configure.sh:7476: $? = 0
 configure.sh:7476: result: yes
 configure.sh:7476: checking for setattrlist
 configure.sh:7476: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c  >&5
-/tmp/cc45pH1J.o: In function `main':
+/tmp/ccSlgg3O.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:180: undefined reference to `setattrlist'
 collect2: error: ld returned 1 exit status
 configure.sh:7476: $? = 1
@@ -6822,7 +6822,7 @@ configure.sh:8144: checking whether -c -o works
 configure.sh:8163: result: yes
 configure.sh:8184: checking for _acl
 configure.sh:8184: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c -lpopt  >&5
-/tmp/ccYZ1KFd.o: In function `main':
+/tmp/ccZh7EWb.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:198: undefined reference to `_acl'
 collect2: error: ld returned 1 exit status
 configure.sh:8184: $? = 1
@@ -7031,7 +7031,7 @@ configure.sh: failed program was:
 configure.sh:8184: result: no
 configure.sh:8184: checking for __acl
 configure.sh:8184: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c -lpopt  >&5
-/tmp/ccxrdeBm.o: In function `main':
+/tmp/cc6hVHgj.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:198: undefined reference to `__acl'
 collect2: error: ld returned 1 exit status
 configure.sh:8184: $? = 1
@@ -7240,7 +7240,7 @@ configure.sh: failed program was:
 configure.sh:8184: result: no
 configure.sh:8184: checking for _facl
 configure.sh:8184: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c -lpopt  >&5
-/tmp/ccYgZimq.o: In function `main':
+/tmp/ccBZjecn.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:198: undefined reference to `_facl'
 collect2: error: ld returned 1 exit status
 configure.sh:8184: $? = 1
@@ -7449,7 +7449,7 @@ configure.sh: failed program was:
 configure.sh:8184: result: no
 configure.sh:8184: checking for __facl
 configure.sh:8184: gcc -std=gnu99 -o conftest -g -O2 -DHAVE_CONFIG_H -Wall -W   conftest.c -lpopt  >&5
-/tmp/ccsCwHdz.o: In function `main':
+/tmp/cc4l44Kv.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:198: undefined reference to `__facl'
 collect2: error: ld returned 1 exit status
 configure.sh:8184: $? = 1
@@ -7684,7 +7684,7 @@ conftest.c:172:44: warning: 'permset_d' is used uninitialized in this function [
   acl_permset_t permset_d; acl_perm_t perm; return acl_get_perm_np( permset_d, perm);
                                             ^
 conftest.c:172:44: warning: 'perm' is used uninitialized in this function [-Wuninitialized]
-/tmp/cc8bzoPE.o: In function `main':
+/tmp/ccS0XCzL.o: In function `main':
 /home/garvit/SNAPSync/conftest.c:172: undefined reference to `acl_get_perm_np'
 collect2: error: ld returned 1 exit status
 configure.sh:8378: $? = 1

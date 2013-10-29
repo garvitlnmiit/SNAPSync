@@ -1,4 +1,4 @@
-# Makefile for rsync. This is processed by configure to produce the final
+# Makefile for snap_sync. This is processed by configure to produce the final
 # Makefile
 
 prefix=@prefix@
