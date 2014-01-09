@@ -1,3 +1,4 @@
+# Author : Garvit Sharma <garvits45@gmail.com>
 # Makefile for snap_sync. This is processed by configure to produce the final
 # Makefile
 
