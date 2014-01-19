@@ -31,7 +31,6 @@
 #include "main.h"
 #include "traverse_dir.h"
 
-#define vpath "./"
 #define file_name_size 100
 #define total_files 100
 
@@ -41,7 +40,7 @@
 #define log_file "log.log"
 
 char files_f[200], delete_files[200],log_f[200],
-	ful[100], fdl[100],fll[100];
+	ful[100], fdl[100],fll[100], vpath[1024];
 
 /* parameter needed by the software program */
 

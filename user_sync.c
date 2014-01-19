@@ -66,7 +66,7 @@ static void open_file_desc(void);
 static void signal_initializer(void);
 
 char files_f[200], delete_files[200],
-	ful[100], fdl[100];
+	ful[100], fdl[100], vpath[1024];
 
 void cleanup(void)
 {
@@ -266,13 +266,18 @@ static void parse_file(char *config_file)
 			if(dest==NULL)
 			{perror("invalid path\n"); exit(EXIT_FAILURE);}
 		}
-		else	
+		else if(strcmp(token, "source")==0)	
 		{
 			src=(char *)malloc(100*sizeof(char));
 			src=strtok(NULL,delim);
 			//arg[3]=src;
 			if(src==NULL)
 			{perror("invalid path\n"); exit(EXIT_FAILURE);}
+		}
+		else
+		{
+			perror("Invalid Attribute\n"); 		
+			exit(EXIT_FAILURE);
 		}
 		
 	}
@@ -287,7 +292,7 @@ static void main1(void)
 	int th_status,join_status;
 	void *res;	
 
-	pull();		//pull content from the server for the first time.
+	//pull();		//pull content from the server for the first time.
 	init_inotify();
 	printf("DONE\n");	
 	alarm(tsec);
@@ -329,12 +334,18 @@ int main(int argc,char *argv[])
 	strcpy(files_f, "--files-from=");
 	strcpy(delete_files, "--include-from=");
 	strcpy(log_f,"--log-file=");	
-
+	
 	strcpy(onetimepass, vpath);
 	strcpy(onetimepass, "onetimepass.sh");		
 
 	signal_initializer();	
 	
+	if(getcwd(vpath, sizeof(vpath)) == NULL) {
+		perror("Error getting CWD");
+		exit(EXIT_FAILURE);
+	}
+	strcat(vpath,"/");	
+	printf("\n>>> %s\n",vpath);
 	open_file_desc();
 
 	while(1)
@@ -387,7 +398,7 @@ int main(int argc,char *argv[])
 	parse_file(config_file); // extracting data from configuration file
 
 	printf("time=%dsec, source=%s, dest=%s, detach=%s\n",tsec,src,dest,detach);	
-
+/*
 	xpid=fork();
 
 	if(xpid<0)
@@ -411,7 +422,7 @@ int main(int argc,char *argv[])
 	}
 
 	waitpid(-1,&x_status,0);	//wait for the child to terminate.
-	
+*/	
 	if(strcmp(detach,"true")==0) // if detach=true, then make the process as daemon
 	{
 		pid=fork();
