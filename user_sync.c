@@ -335,9 +335,6 @@ int main(int argc,char *argv[])
 	strcpy(delete_files, "--include-from=");
 	strcpy(log_f,"--log-file=");	
 	
-	strcpy(onetimepass, vpath);
-	strcpy(onetimepass, "onetimepass.sh");		
-
 	signal_initializer();	
 	
 	if(getcwd(vpath, sizeof(vpath)) == NULL) {
@@ -345,7 +342,11 @@ int main(int argc,char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	strcat(vpath,"/");	
-	printf("\n>>> %s\n",vpath);
+
+	strcpy(onetimepass, vpath);
+	strcat(onetimepass, "onetimepass.sh");		
+	
+	//printf("\n>>> %s\n",vpath);
 	open_file_desc();
 
 	while(1)
