@@ -292,7 +292,7 @@ static void main1(void)
 	int th_status,join_status;
 	void *res;	
 
-	//pull();		//pull content from the server for the first time.
+	pull();		//pull content from the server for the first time.
 	init_inotify();
 	printf("DONE\n");	
 	alarm(tsec);
@@ -403,7 +403,7 @@ int main(int argc,char *argv[])
 	dest_d[0]='\0';
 	strcpy(src_d,src);
 	strcpy(dest_d,dest);
-/*
+
 	xpid=fork();
 
 	if(xpid<0)
@@ -427,7 +427,7 @@ int main(int argc,char *argv[])
 	}
 
 	waitpid(-1,&x_status,0);	//wait for the child to terminate.
-*/	
+	
 	if(strcmp(detach,"true")==0) // if detach=true, then make the process as daemon
 	{
 		pid=fork();
