@@ -398,6 +398,11 @@ int main(int argc,char *argv[])
 	parse_file(config_file); // extracting data from configuration file
 
 	printf("time=%dsec, source=%s, dest=%s, detach=%s\n",tsec,src,dest,detach);	
+	
+	src_d[0]='\0';
+	dest_d[0]='\0';
+	strcpy(src_d,src);
+	strcpy(dest_d,dest);
 /*
 	xpid=fork();
 

@@ -320,10 +320,8 @@ void timeout_handler(int signo)
 		return;
 
 	int argc,retval;
-	char *argv[10], sr[100], dt[100];
+	char *argv[10];
 	pid_t pid;
-	strcpy(sr,src);
-	strcpy(dt,dest);
 
 	int cpos1=0,cpos2=0;
 
@@ -349,8 +347,8 @@ void timeout_handler(int signo)
 		argv[2]="--timeout=60";
 		argv[3]=log_f;
 		argv[4]=files_f;
-		argv[5]=sr;
-		argv[6]=dt;
+		argv[5]=src_d;
+		argv[6]=dest_d;
 		argc=7;
 
 		retval=sync_main(argc,argv);
@@ -386,8 +384,8 @@ void timeout_handler(int signo)
 		argv[4]=delete_files;
 		argv[5]=log_f;
 		argv[6]="--exclude=*";
-		argv[7]=sr;
-		argv[8]=dt;
+		argv[7]=src_d;
+		argv[8]=dest_d;
 		argc=9;
 
 		retval=sync_main(argc,argv);

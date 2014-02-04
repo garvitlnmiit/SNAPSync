@@ -1018,5 +1018,5 @@ AC_CONFIG_FILES([Makefile lib/dummy zlib/dummy popt/dummy shconfig])
 AC_OUTPUT
 
 AC_MSG_RESULT()
-AC_MSG_RESULT([    rsync ${RSYNC_VERSION} configuration successful])
+AC_MSG_RESULT([    SNAPSync v0.1 configuration successful])
 AC_MSG_RESULT()

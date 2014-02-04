@@ -46,7 +46,9 @@ char files_f[200], delete_files[200],log_f[200],
 
 char *src, //for source directory path
      *dest, //for destination directory path
-     *detach;	//to make it daemon(true) or a process(false)
+     *detach,	//to make it daemon(true) or a process(false)
+	src_d[100],
+	dest_d[100];
 int tsec; // after each tsec check for any updates and transfer that to the server.
 
 char u_files[file_name_size][total_files],
